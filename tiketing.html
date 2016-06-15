@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> 
+ <style>
+	.row {
+		margin-top:10px;
+		margin-left:2px;
+	}
+	.row2 {
+		margin-top:10px;
+		margin-left:2px;
+	}
+	.col-sm-6 {
+		padding:1px;
+	}
+	.tab1 {
+	background-image:url("pesawat.png");
+	background-repeat:no-repeat;
+	background-position:center;
+	background-size: 450px 200px;
+		margin-left:200px;
+		border-radius:5px;
+		border: 1px solid black;
+		height:300px;
+	}
+	.tab10 {
+	background-image:url("kereta.jpg");
+	background-repeat:no-repeat;
+	background-position:center;
+	background-size: 450px 200px;
+		margin-left:200px;
+		border-radius:5px;
+		border: 1px solid black;
+		height:300px;
+	}
+	.tab20 {
+	background-image:url("bus.jpeg");
+	background-repeat:no-repeat;
+	background-position:center;
+	background-size: 450px 200px;
+		margin-right:200px;
+		border-radius:5px;
+		border: 1px solid black;
+		height:300px;
+	}
+	.tab2 {
+	background-image:url("bioskop.png");
+	background-repeat:no-repeat;
+	background-position:center;
+	background-size: 450px 200px;
+		margin-right:200px;
+		border-radius:5px;
+		border: 1px solid black;
+		height:300px;
+	}
+	.tabel1 {
+		margin:auto;
+		margin-bottom:10px;
+	}
+  </style>
+</head>
+<body>
+<div ng-app="myApp" ng-controller="myCtrl">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="tab10" ng-hide="hide1">
+		  <h2 ng-click="myFunc()"><center>Train Card</center></h2>
+		  <table class="tabel1" ng-show="sh">
+			<tr>
+			<td><br>Nama <td>  <td><br><input type="text" name="nama" ng-model="k1"></td>
+			</tr>
+			<tr>
+			<td><br>NO. ID <td>  <td><br><input type="text" name="nama" ng-model="k2"></td>
+			</tr>
+			<tr>
+			<td><br>STA Pesan <td>  <td><br><input type="text" name="nama" ng-model="k3"></td>
+			</tr>
+			<tr>
+			<td><br><input type="text" name="nama" style="width:120px" placeholder="Kota Awal" ng-model="k4"> <td>  <td>
+			<br><input type="text" name="nama" style="width:80px" placeholder="Berangkat" ng-model="k5"></td>
+			</tr>
+			<tr>
+			<td><br><input type="text" name="nama" style="width:120px" placeholder="Tujuan" ng-model="k6"> <td>  <td>
+			<br><input type="text" name="nama" style="width:80px" placeholder="Tiba" ng-model="k7"></td>
+			</tr>
+			<tr>
+			<td><br>Tanggal KA <td>  <td><br><input type="text" name="nama" ng-model="k8"></td>
+			</tr>
+			<tr>
+			<td><br>Kelas / Kursi <td>  <td><br>
+			<input type="text" name="nama" style="width:80px" placeholder="Kelas" ng-model="k9">
+			<input type="text" name="nama" style="width:80px" placeholder="Kursi" ng-model="k10"></td>
+			</tr>
+			<tr>
+			<td><br>Harga <td>  <td><br><input type="text" name="nama" ng-model="k11"></td>
+			</tr>
+			<tr><td><center><br><br><center><button onclick="myFunction()">Print tiket</button><br><br></center></td></tr>
+			</table> 
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="tab2" ng-hide="hide2">
+			<h2 ng-click="Function()"><center>Tiket Bioskop</center></h2>
+            <table class="tabel1" ng-show="sho">
+			<tr>
+			<td>Judul Film <td>  <td><input type="text" name="nama" ng-model="b1"></td>
+			</tr>
+			<tr>
+			<td><br>Date <td>  <td><br><input type="text" name="nama" ng-model="b2"></td>
+			</tr>
+			<tr>
+			<td><br>Time <td>  <td><br><input type="text" name="nama" ng-model="b3"></td>
+			</tr>
+			<tr>
+			<td><br>Row <td>  <td><br><input type="text" name="nama" style="width:80px" placeholder="Huruf" ng-model="b4">
+			<input type="text" name="nama" style="width:80px" placeholder="Angka" ng-model="b5"></td>
+			</tr>
+			<tr>
+			<td><br>Price <td>  <td><br><input type="text" name="nama" ng-model="b6"></td>
+			</tr>
+			<tr><td><center><br><br><button onclick="Func()">Print tiket</button><br><br></center></td></tr>
+			</table>
+          </div>
+		  </div>
+		  </div>
+		  <div class="row">
+        <div class="col-sm-6">
+          <div class="tab1" ng-hide="hide3">
+		  <h2 ng-click="Fun()"><center>Airplane</center></h2>
+            <table class="tabel1" ng-show="sow">
+			<tr>
+			<td><br>Nama <td>  <td><br><input type="text" name="nama" ng-model="p1"></td>
+			</tr>
+			<tr>
+			<td><br>NO. ID <td>  <td><br><input type="text" name="nama" ng-model="p2"></td>
+			</tr>
+			<tr>
+			<td><br>STA Pesan <td>  <td><br><input type="text" name="nama" ng-model="p3"></td>
+			</tr>
+			<tr><td><br>Flight Destination</td>
+			</tr>
+			<tr>
+			<td><br><input type="text" name="nama" style="width:120px" placeholder="Tujuan" ng-model="p4"> <td> : <td>
+			<br><input type="text" name="nama" style="width:120px" placeholder="Tiba" ng-model="p5"></td>
+			</tr>
+			<tr>
+			<td><br>Tanggal <td>  <td><br><input type="text" name="nama" ng-model="p6"></td>
+			</tr>
+			<tr>
+			<td><br>Kelas / Kursi <td>  <td><br>
+			<input type="text" name="nama" style="width:80px" placeholder="Kelas" ng-model="p7">
+			<input type="text" name="nama" style="width:80px" placeholder="Kursi" ng-model="p8"></td>
+			</tr>
+			<tr><td><br><br><center><button onclick="pesawat()">Print tiket</button><br><br></center></td></tr>
+			</table> 
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="tab20" ng-hide="hide4">
+		  <h2 ng-click="myFun()"><center>Transjakarta</center></h2>
+		  <table class="tabel1" ng-show="sow">
+			<tr>
+			<td><br>Nama <td>  <td><br><input type="text" name="nama" ng-model="t1"></td>
+			</tr>
+			<tr>
+			<td><br>Alamat <td>  <td><br><input type="text" name="nama" ng-model="t2"></td>
+			</tr>
+			<tr><td><br>Destination</td>
+			</tr>
+			<tr>
+			<td><br><input type="text" name="nama" style="width:120px" placeholder="Tujuan" ng-model="t3"> <td> : <td>
+			<br><input type="text" name="nama" style="width:120px" placeholder="Tiba" ng-model="t5"></td>
+			</tr>
+			<tr>
+			<td><br>Tanggal <td>  <td><br><input type="text" name="nama" ng-model="t6"></td>
+			</tr>
+			<tr>
+			<td><br>Jam <td>  <td><br><input type="text" name="nama" ng-model="t7"></td>
+			</tr>
+			<tr>
+			<td><br>No. Polisi <td>  <td><br><input type="text" name="nama" ng-model="t8"></td>
+			</tr>
+			<tr>
+			<tr>
+			<td><br>Tarif <td>  <td><br><input type="text" name="nama" ng-model="t9"></td>
+			</tr>
+			<tr><td><br><br><center><button onclick="trans()">Print tiket</button><br><br></center></td></tr>
+			</table> 
+          </div>
+        </div>
+      </div>
+	 <b> <div class="row2">
+		<div class="col-sm-3">
+          <div class="tab1" id="tab11" ng-show="showMe" style="font-size:16;">
+		  <br><img src="kereta2.png" style="height:100px; width:750px;"><br><br><br><br>
+            <table class="tabel11">
+			<tr>
+			<td>Nama <td> : <td>{{k1}}</td>
+			</tr>
+			<tr>
+			<td>NO. ID <td> : <td>{{k2}}</td>
+			</tr>
+			<tr>
+			<td>STA Pesan <td> : <td>{{k3}}</td>
+			</tr>
+			<tr>
+			<td>{{k4}} <td> : <td>
+			{{k5}}</td>
+			</tr>
+			<tr>
+			<td>{{k6}} <td> : <td>
+			{{k7}}</td>
+			</tr>
+			<tr>
+			<td>Tanggal KA <td> : <td>{{k8}}</td>
+			</tr>
+			<tr>
+			<td>Kelas / Kursi <td> : <td>
+			{{k9}} : 
+			{{k10}}</td>
+			</tr>
+			<tr>
+			<td><h3><center>{{k11}}</h3></center></td>
+			</tr>
+			</table> 
+			<br>
+			<br>
+          </div>
+		<div class="col-sm-3">
+          <div class="tab2" ng-show="show" id="tab2"><b>
+		  <img src="bioskop2.png" style="height:100px; width:750px;">
+		  <hr>
+            <table class="tabel11">
+			<tr>
+			<td><span><h3>{{b1}}</h3></span></td>
+			</tr>
+			<tr>
+			<td>Date <td> : <td>{{b2}}</td>
+			</tr>
+			<tr>
+			<td>Time <td> : <td>{{b3}}</td>
+			</tr>
+			<tr>
+			<td>Row <td> : <td>{{b4}} : {{b5}}</td>
+			</tr>
+			<tr>
+			<td>Price <td> : <td>{{b6}}</td>
+			</tr>
+			</table>  
+		  </div>
+ <div class="col-sm-6">
+          <div id="pesawat" ng-show="hid3">
+		  <img src="pesawat2.jpg" style="height:100px; width:750px;"><br>
+		  <hr>
+            <table class="tabel1">
+			<tr>
+			<td><br>Nama <td>  <td>{{p1}}</td>
+			</tr>
+			<tr>
+			<td><br>NO. ID <td>  <td>{{p2}}</td>
+			</tr>
+			<tr>
+			<td><br>STA Pesan <td>  <td>{{p3}}</td>
+			</tr>
+			<tr><td><br>Flight Destination</td>
+			</tr>
+			<tr>
+			<td>{{p4}}<td> : <td>
+			<br>{{p1}}{{p5}}</td>
+			</tr>
+			<tr>
+			<td><br>Tanggal <td>  <td>{{p6}}</td>
+			</tr>
+			<tr>
+			<td><br>Kelas / Kursi <td>  <td><br>
+			{{p7}} : 
+			{{p8}}</td>
+			</tr>
+			</table> 
+        </div>
+<div class="col-sm-6">
+          <div id="tab20" ng-show="hid4">
+		  <img src="bus2.jpg" style="height:100px; width:750px;"><br>
+		  		  <table class="tabel1">
+			<tr>
+			<td>Nama <td>  <td>{{t1}}</td>
+			</tr>
+			<tr>
+			<td>Alamat <td>  <td>{{t2}}</td>
+			</tr>
+			<tr><td>Destination</td>
+			</tr>
+			<tr>
+			<td>{{t3}} <td> : <td>
+			{{t5}}</td>
+			</tr>
+			<tr>
+			<td>Tanggal <td>  <td>{{t6}}</td>
+			</tr>
+			<tr>
+			<td>Jam <td>  <td>{{t7}}</td>
+			</tr>
+			<tr>
+			<td>No. Polisi <td>  <td>{{t8}}</td>
+			</tr>
+			<tr>
+			<tr>
+			<td>Tarif <td>  <td>{{t9}}</td>
+			</tr>
+			</table> 
+          </div>
+        </div>		
+          </div>
+        </div>
+      </div></b>
+	  <script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.showMe = false;
+	$scope.sh = false;
+    $scope.myFunc = function() {
+		$scope.sh = !$scope.sh;
+		$scope.hide2 = !$scope.hide2;
+		$scope.hide3 = !$scope.hide3;
+		$scope.hide4 = !$scope.hide4;
+    }
+	$scope.show = false;
+	$scope.sho = false;
+    $scope.Function = function() {
+		$scope.sho = !$scope.sho;
+		$scope.hide1 = !$scope.hide1;
+		$scope.hide3 = !$scope.hide3;
+		$scope.hide4 = !$scope.hide4;
+    }
+	$scope.show = false;
+	$scope.sho = false;
+    $scope.Fun = function() {
+		$scope.sow = !$scope.sow;
+		$scope.hide1 = !$scope.hide1;
+		$scope.hide2 = !$scope.hide2;
+		$scope.hide4 = !$scope.hide4;
+    }
+	$scope.show = false;
+	$scope.sho = false;
+    $scope.myFun = function() {
+		$scope.sow = !$scope.sow;
+		$scope.hide1 = !$scope.hide1;
+		$scope.hide2 = !$scope.hide2;
+		$scope.hide3 = !$scope.hide3;
+    }
+});
+function myFunction() {
+	var printContent = document.getElementById("tab11").innerHTML;
+	var restorepage = document.body.innerHTML;
+	document.body.innerHTML = printContent;
+	window.print();
+	document.body.innerHTML = restorepage;
+}
+function Func() {
+	var printContent = document.getElementById("tab2").innerHTML;
+	var restorepage = document.body.innerHTML;
+	document.body.innerHTML = printContent;
+	window.print();
+	document.body.innerHTML = restorepage;
+}
+function pesawat() {
+	var printContent = document.getElementById("pesawat").innerHTML;
+	var restorepage = document.body.innerHTML;
+	document.body.innerHTML = printContent;
+	window.print();
+	document.body.innerHTML = restorepage;
+}
+function trans() {
+	var printContent = document.getElementById("tab20").innerHTML;
+	var restorepage = document.body.innerHTML;
+	document.body.innerHTML = printContent;
+	window.print();
+	document.body.innerHTML = restorepage;
+}
+$( "h2" ).click(function() {
+  $( "div" ).animate({
+    width: "80%",
+	height: "80%",
+    marginLeft: "1.0in",
+    borderWidth: "4px"
+  }, 1500 );
+});
+</script>
+
+</body>
+</html>
